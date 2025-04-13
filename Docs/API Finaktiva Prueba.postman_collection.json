@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "ae225ba2-5461-41f6-b321-fa3be75088a2",
+		"name": "API Finaktiva Prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44014638",
+		"_collection_link": "https://cristianjaramilloramirez.postman.co/workspace/Cristian-Jaramillo-Ramirez's-Wo~dc6b578a-070c-4b62-8bc2-dcad90df7b71/collection/44014638-ae225ba2-5461-41f6-b321-fa3be75088a2?action=share&source=collection_link&creator=44014638"
+	},
+	"item": [
+		{
+			"name": "Crear Evento",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Prueba Postman\",\r\n  \"type\": \"api\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/newEvent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"newEvent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET sin filtros ",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Por tipo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/eventsList?type=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eventsList"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rango de fechas",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/eventsList?startDate=2025-04-10&endDate=2025-04-30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eventsList"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-04-10"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-04-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fechas y Tipo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/eventsList?type=api&startDate=2025-04-01&endDate=2025-04-30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eventsList"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "api"
+						},
+						{
+							"key": "startDate",
+							"value": "2025-04-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-04-30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

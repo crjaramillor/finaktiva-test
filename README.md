@@ -104,7 +104,7 @@ node src/server.js
 Para sincronizar la base de datos y crear las tablas necesarias, puedes enviar una solicitud **HEAD** al siguiente endpoint:
 
 ```bash
-HEAD http://localhost:3000/api/db/sync
+HEAD http://localhost:3000/db/sync
 ```
 
 Este endpoint hará que el servidor sincronice la base de datos según la configuración de tu archivo `.env`.

@@ -1,0 +1,39 @@
+<h1>Lista de Eventos</h1>
+
+<!-- Filtros -->
+<div class="filters">
+  <label for="typeFilter">Tipo:</label>
+  <select id="typeFilter" [(ngModel)]="typeFilter">
+    <option value="">Todos</option>
+    <option value="api">API</option>
+    <option value="manual">Manual</option>
+  </select>
+
+  <label for="startDateFilter">Desde:</label>
+  <input id="startDateFilter" type="date" [(ngModel)]="startDateFilter">
+
+  <label for="endDateFilter">Hasta:</label>
+  <input id="endDateFilter" type="date" [(ngModel)]="endDateFilter">
+
+  <div class="filter-buttons">
+    <button (click)="loadEvents()">Aplicar</button>
+    <button (click)="clearFilters()">Limpiar</button>
+  </div>
+</div>
+
+<!-- Botón para abrir el modal -->
+<div class="top-bar">
+  <button class="create-btn" (click)="toggleForm()">Crear Evento</button>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="showForm">
+  <div class="modal-content">
+    <span class="close" (click)="toggleForm()">&times;</span>
+    <h2>Registrar Evento</h2>
+    <app-event-form (submitEvent)="onCreate($event)"></app-event-form>
+  </div>
+</div>
+
+<!-- Tabla de eventos -->
+<app-event-table [eventLogs]="eventLogs"></app-event-table>

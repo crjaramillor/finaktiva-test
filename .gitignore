@@ -1,0 +1,43 @@
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+
+######################
+# BACKEND
+######################
+
+# Node.js
+Backend/node_modules/
+Backend/dist/
+
+# IDEs
+Backend/.vscode/
+Backend/.idea/
+
+######################
+# FRONTEND
+######################
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/
+
+# Build output
+frontend/tmp/
+frontend/out-tsc/
+frontend/.output/
+
+# IDEs
+frontend/.idea/
+
+# Others
+frontend/package-lock.json
+Backend/package-lock.json

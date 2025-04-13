@@ -72,7 +72,7 @@ npm start
 
 ---
 
-## Configuración de base de datos (MySQL)
+#### Configuración de base de datos (MySQL)
 
 Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
 

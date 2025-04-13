@@ -1,6 +1,6 @@
 # 📋 Prueba Técnica - Finaktiva
 
-> Proyecto full stack realizado como parte del proceso técnico para Finaktiva. Incluye un backend con Node.js y un frontend en Angular 19, organizados bajo buenas prácticas como Clean Architecture y separación clara de responsabilidades.
+> Proyecto realizado como parte del proceso técnico para Finaktiva. Incluye un backend con Node.js y un frontend en Angular 19, organizados bajo buenas prácticas como Clean Architecture y separación clara de responsabilidades.
 
 ---
 
@@ -110,6 +110,61 @@ ng serve
 - **Agregar evento:** Un botón abre un formulario modal para registrar eventos con tipo `"manual"`.
 - **Filtros:** Puedes filtrar por tipo y fecha de evento.
 - **API Swagger:** Documentación disponible en `/api-docs`.
+
+---
+### **Endpoints de la API**
+
+| Método | Endpoint                         | Descripción                                    | Cuerpo de la Solicitud                     | Respuesta Esperada         |
+|--------|----------------------------------|------------------------------------------------|--------------------------------------------|----------------------------|
+| **POST** | `/api/newEvent`                 | Crea un nuevo evento.                          | `{ "description": "Prueba Postman", "type": "api" }` | `201 Created` o similar.    |
+| **GET**  | `/api/eventsList`               | Obtiene todos los eventos sin ningún filtro.    | -                                          | `[ { "description": "Evento1", "type": "manual" }, ... ]` |
+| **GET**  | `/api/eventsList?type=<tipo>`    | Obtiene eventos filtrados por tipo (api o manual).| Parámetro `type` (ej. `type=api`)          | `[ { "description": "Evento1", "type": "api" }, ... ]` |
+| **GET**  | `/api/eventsList?startDate=<fecha_inicio>&endDate=<fecha_fin>` | Obtiene eventos filtrados por rango de fechas.  | Parámetros `startDate` y `endDate` (ej. `startDate=2025-04-01&endDate=2025-04-30`) | `[ { "description": "Evento1", "type": "manual", "date": "2025-04-10" }, ... ]` |
+| **GET**  | `/api/eventsList?type=<tipo>&startDate=<fecha_inicio>&endDate=<fecha_fin>` | Obtiene eventos filtrados por tipo y fecha.     | Parámetros `type`, `startDate`, `endDate` (ej. `type=api&startDate=2025-04-01&endDate=2025-04-30`) | `[ { "description": "Evento1", "type": "api", "date": "2025-04-15" }, ... ]` |
+
+### **Detalles de los Endpoints:**
+
+1. **`POST /api/newEvent`**:
+   - **Descripción**: Este endpoint se utiliza para crear un nuevo evento en la base de datos. El tipo de evento puede ser "api" o "manual", aunque desde el frontend siempre se enviará como "manual".
+   - **Cuerpo de la solicitud**:
+     ```json
+     {
+       "description": "Prueba Postman",
+       "type": "api"
+     }
+     ```
+   - **Respuesta esperada**: El servidor responderá con un código HTTP 201 (Creado) si el evento fue registrado correctamente.
+
+2. **`GET /api/eventsList`**:
+   - **Descripción**: Obtiene todos los eventos sin aplicar ningún filtro.
+   - **Respuesta esperada**: Un array de objetos JSON que representan los eventos:
+     ```json
+     [
+       {
+         "description": "Evento1",
+         "type": "manual"
+       },
+       {
+         "description": "Evento2",
+         "type": "api"
+       }
+     ]
+     ```
+
+3. **`GET /api/eventsList?type=<tipo>`**:
+   - **Descripción**: Obtiene los eventos filtrados por tipo, donde `<tipo>` puede ser "api" o "manual".
+   - **Ejemplo de URL**: `/api/eventsList?type=api`
+   - **Respuesta esperada**: Un array de objetos JSON de los eventos que coincidan con el tipo especificado.
+
+4. **`GET /api/eventsList?startDate=<fecha_inicio>&endDate=<fecha_fin>`**:
+   - **Descripción**: Obtiene los eventos que se encuentren dentro de un rango de fechas especificado.
+   - **Ejemplo de URL**: `/api/eventsList?startDate=2025-04-01&endDate=2025-04-30`
+   - **Respuesta esperada**: Un array de eventos dentro del rango de fechas, con fechas y tipo de evento.
+
+5. **`GET /api/eventsList?type=<tipo>&startDate=<fecha_inicio>&endDate=<fecha_fin>`**:
+   - **Descripción**: Obtiene los eventos filtrados tanto por tipo como por un rango de fechas.
+   - **Ejemplo de URL**: `/api/eventsList?type=api&startDate=2025-04-01&endDate=2025-04-30`
+   - **Respuesta esperada**: Un array de eventos filtrados tanto por tipo como por fechas.
 
 ---
 

@@ -1,3 +1,4 @@
+
 # 📋 Prueba Técnica - Finaktiva
 
 > Proyecto realizado como parte del proceso técnico para Finaktiva. Incluye un backend con Node.js y un frontend en Angular 19, organizados bajo buenas prácticas como Clean Architecture y separación clara de responsabilidades.
@@ -86,16 +87,15 @@ DB_DATABASE=registration
 DB_PASSWORD=
 ```
 
-2. **Asegúrate de que el servidor de Node.js esté ejecutándose.**
+2. **Asegúrate de que el servidor de Node.js esté ejecutándose.** 
 
    Puedes iniciar el servidor ejecutando:
 
 ```bash
-npm start
+node src/server.js
 ```
 
    El servidor debe estar corriendo en `http://localhost:3000/`.
-
 
 ---
 
@@ -140,6 +140,7 @@ ng serve
 - **API Swagger:** Documentación disponible en `/api-docs`.
 
 ---
+
 ### **Endpoints de la API**
 
 | Método | Endpoint                         | Descripción                                    | Cuerpo de la Solicitud                     | Respuesta Esperada         |
@@ -229,4 +230,3 @@ finaktiva-test/
 - Proyecto estructurado siguiendo principios de **Clean Architecture** y buenas prácticas de desarrollo.
 
 ---
-

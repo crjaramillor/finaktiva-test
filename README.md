@@ -50,7 +50,7 @@ Instala los siguientes programas:
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/TU-USUARIO/prueba-finaktiva.git
+git clone https://github.com/crjaramillor/finaktiva-test.git
 cd prueba-finaktiva
 ```
 
@@ -64,7 +64,7 @@ npm install
 #### Ejecutar el servidor:
 
 ```bash
-npm start
+node src/server.js
 ```
 
 - El servidor se inicia por defecto en `http://localhost:3000/`
@@ -72,9 +72,11 @@ npm start
 
 ---
 
-#### Configuración de base de datos (MySQL)
+### ⚙️ Configuración de la Base de Datos (MySQL)
 
-Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
+Antes de comenzar, asegúrate de que **MySQL** está instalado y en ejecución en tu máquina local.
+
+1. **Crea un archivo `.env`** en la raíz del proyecto con la siguiente configuración, asegurándote de ajustarlo a tu entorno local:
 
 ```env
 DB_HOST=localhost
@@ -83,10 +85,30 @@ DB_USER=root
 DB_DATABASE=registration
 DB_PASSWORD=
 ```
-#### Endpoint para sincronización
+
+2. **Asegúrate de que el servidor de Node.js esté ejecutándose.**
+
+   Puedes iniciar el servidor ejecutando:
+
+```bash
+npm start
+```
+
+   El servidor debe estar corriendo en `http://localhost:3000/`.
+
+
+---
+
+### 🔄 Sincronización de la Base de Datos
+
+Para sincronizar la base de datos y crear las tablas necesarias, puedes enviar una solicitud **HEAD** al siguiente endpoint:
+
 ```bash
 HEAD http://localhost:3000/api/db/sync
 ```
+
+Este endpoint hará que el servidor sincronice la base de datos según la configuración de tu archivo `.env`.
+
 ### 3. Configuración del Frontend
 
 ```bash

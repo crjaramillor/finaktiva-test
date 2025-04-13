@@ -221,6 +221,8 @@ finaktiva-test/
 ```
 
 ---
+## 🧾 Video Explicativo
+https://drive.google.com/file/d/1a_NtRHviSK5JTRzkDaPtIMnqALrna0-1/view?usp=sharing 
 
 ## 🧾 Notas Finales
 

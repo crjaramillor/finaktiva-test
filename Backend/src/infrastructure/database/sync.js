@@ -1,16 +1,30 @@
+const express = require('express');
+const router = express.Router();
 const sequelize = require('../../config/database');
-const EventLog = require('./eventlog.model');
+const models = require('../database/models');
 
-async function syncDatabase() {
+// async function syncDatabase() {
+//   try {
+//     await sequelize.authenticate();
+//     console.log('Conexión establecida correctamente.');
+
+//     await sequelize.sync({ alter: true }); // o { force: true } si quieres borrar y crear
+//     console.log('Tablas sincronizadas correctamente.');
+//   } catch (error) {
+//     console.error('Error al conectar o sincronizar la base de datos:', error);
+//   }
+// }
+
+// syncDatabase();
+
+router.head('/sync', async function (req, res, next) {
   try {
-    await sequelize.authenticate();
-    console.log('Conexión establecida correctamente.');
-
-    await sequelize.sync({ alter: true }); // o { force: true } si quieres borrar y crear
-    console.log('Tablas sincronizadas correctamente.');
-  } catch (error) {
-    console.error('Error al conectar o sincronizar la base de datos:', error);
+    await models.sequelize.sync({ alter: true });
+    res.json();
+  } catch (err) {
+    console.error('Error al sincronizar', err);
+    next({ err });
   }
-}
+});
 
-syncDatabase();
+module.exports=router;

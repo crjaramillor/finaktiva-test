@@ -61,15 +61,6 @@ cd Backend
 npm install
 ```
 
-#### Configurar la base de datos (MySQL)
-
-1. Edita `src/config/config.js` con tus credenciales de MySQL.
-2. Ejecuta las migraciones:
-
-```bash
-npx sequelize-cli db:migrate
-```
-
 #### Ejecutar el servidor:
 
 ```bash
@@ -81,6 +72,21 @@ npm start
 
 ---
 
+## Configuración de base de datos (MySQL)
+
+Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_DATABASE=registration
+DB_PASSWORD=
+```
+#### Endpoint para sincronización
+```bash
+HEAD http://localhost:3000/api/db/sync
+```
 ### 3. Configuración del Frontend
 
 ```bash

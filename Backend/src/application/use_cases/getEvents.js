@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const EventLog = require('../../infrastructure/database/eventlog.model');
+const models = require('../../infrastructure/database/models');
 
 async function getEvents({ type, startDate, endDate }) {
   const where = {};
@@ -25,7 +25,7 @@ async function getEvents({ type, startDate, endDate }) {
     };
   }
 
-  return await EventLog.findAll({ where });
+  return await models.eventLog.findAll({ where });
 }
 
 module.exports = getEvents;

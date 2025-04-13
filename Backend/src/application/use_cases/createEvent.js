@@ -1,4 +1,4 @@
-const EventLog = require('../../infrastructure/database/eventlog.model');
+const models = require('../../infrastructure/database/models');
 const eventValidator = require('../validators/eventValidator');
 
 async function createEvent(data) {
@@ -12,7 +12,7 @@ async function createEvent(data) {
 
   const { description, type } = data;
 
-  const newEvent = await EventLog.create({ description, type });
+  const newEvent = await models.eventLog.create({ description, type });
 
   return newEvent;
 }

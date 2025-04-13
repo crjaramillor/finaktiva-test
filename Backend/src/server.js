@@ -26,6 +26,8 @@ app.use('/api', eventRoutes);
 const errorHandler = require('./interfaces/middlewares/errorHandler');
 app.use(errorHandler);
 
+const dbSync = require ('./infrastructure/database/sync');
+app.use('/db',dbSync);
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
